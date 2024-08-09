@@ -1,0 +1,232 @@
+/* Base Styles */
+body {
+    margin: 0;
+    background-color: #000;
+    color: #eee;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* Header */
+header {
+    width: 90%;
+    max-width: 1140px;
+    margin: auto;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 100;
+}
+
+header a {
+    color: #eee;
+    margin-right: 20px;
+}
+
+/* Carousel */
+.carousel {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel .list .item {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+}
+
+.carousel .list .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel .list .item .content {
+    position: absolute;
+    top: 20%;
+    width: 90%;
+    max-width: 1140px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 10%;
+    box-sizing: border-box;
+    color: #ffffffed;
+    text-shadow: 0 5px 10px #0004;
+}
+
+.carousel .list .item .author {
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 1.5rem;
+}
+
+.carousel .list .item .title,
+.carousel .list .item .topic {
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 1.3em;
+}
+
+.carousel .list .item .topic {
+    color: #840643;
+}
+
+.carousel .list .item .buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 120px);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.carousel .list .item .buttons button {
+    border: none;
+    background-color: #eee;
+    letter-spacing: 2px;
+    font-family: Poppins, sans-serif;
+    font-weight: 500;
+}
+
+.carousel .list .item .buttons button:nth-child(2) {
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #eee;
+}
+
+/* Thumbnail */
+.thumbnail {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    width: 90%;
+    max-width: 1140px;
+    z-index: 100;
+    display: flex;
+    gap: 10px;
+    transform: translateX(-50%);
+}
+
+.thumbnail .item {
+    width: 120px;
+    height: 180px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.thumbnail .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.thumbnail .item .content {
+    color: #fff;
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+}
+
+.thumbnail .item .content .title {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.thumbnail .item .content .description {
+    font-weight: 300;
+    font-size: 0.8rem;
+}
+
+/* Arrows */
+.arrows {
+    position: absolute;
+    top: 80%;
+    right: 5%;
+    z-index: 100;
+    width: 60px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.arrows button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #eee4;
+    border: none;
+    color: #fff;
+    font-family: monospace;
+    font-weight: bold;
+    transition: .5s;
+}
+
+.arrows button:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+/* Time Running */
+.carousel .time {
+    position: absolute;
+    z-index: 1000;
+    width: 0%;
+    height: 3px;
+    background-color: #f1683a;
+    left: 0;
+    top: 0;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .carousel .list .item .content {
+        padding: 0 5%;
+    }
+
+    .carousel .list .item .author {
+        font-size: 1.2rem;
+    }
+
+    .carousel .list .item .title,
+    .carousel .list .item .topic {
+        font-size: 2rem;
+    }
+
+    .carousel .list .item .buttons {
+        grid-template-columns: repeat(2, 100px);
+    }
+
+    .thumbnail {
+        bottom: 10px;
+        width: 100%;
+    }
+
+    .thumbnail .item {
+        width: 84px; /* 120px reduced by 30% */
+        height: 126px; /* 180px reduced by 30% */
+    }
+
+    .thumbnail .item .content .title {
+        font-size: 0.9rem;
+    }
+
+    .thumbnail .item .content .description {
+        font-size: 0.7rem;
+    }
+
+    .arrows {
+        top: 90%;
+        right: 3%;
+        width: 50px;
+    }
+
+    .arrows button {
+        width: 25px;
+        height: 25px;
+    }
+}

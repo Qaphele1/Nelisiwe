@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz and Carousel</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div id="quiz1-container">
+        <h1>How Well Do You Know Yourself?</h1>
+        <button id="start-btn">Start Quiz</button>
+
+        <div id="quiz-container">
+            <form id="quiz-form">
+                <div class="question" id="question-container">
+                    <!-- Questions will be dynamically inserted here -->
+                </div>
+                <button type="button" id="next-btn">Next</button>
+            </form>
+        </div>
+
+        <div id="results-container">
+            <table id="results-table">
+                <thead>
+                    <tr>
+                        <th>Question</th>
+                        <th>Answer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Results will be inserted here -->
+                </tbody>
+            </table>
+            <button id="continue-btn" style="display: none;">Continue to Second Quiz</button>
+        </div>
+    </div>
+
+    <div id="quiz2-container" style="display: none;">
+        <!-- <h1>Second Quiz</h1>
+        <button id="start-quiz2-btn">Start Second Quiz</button> -->
+
+        <div id="quiz2-content">
+            <!-- Content for the second quiz will go here -->
+            <div class="quiz-container">
+                <!-- Intro Section -->
+                <div id="intro">
+                    <h1>How well do you know your boyfriend?</h1>
+                    <button id="startQuiz">Start Quiz</button>
+                </div>
+        
+                <!-- Quiz Section -->
+                <div id="quiz" class="hidden">
+                    <div class="timer" id="timer">Time: 00:00:00</div>
+        
+                    <!-- Question 1 -->
+                    <div class="question" id="question1">
+                        <h2>1. If he could have any superpower, what would it be?</h2>
+                        <label><input type="radio" name="q1" value="Invisibility"> Invisibility</label>
+                        <label><input type="radio" name="q1" value="Flying"> Flying</label>
+                        <label><input type="radio" name="q1" value="Super Strength"> Super Strength</label>
+                        <label><input type="radio" name="q1" value="Teleportation"> Teleportation</label>
+                        <button onclick="nextQuestion()">Next</button>
+                    </div>
+        
+                    <!-- Question 2 -->
+                    <div class="question hidden" id="question2">
+                        <h2>2. What is the team he likes most?</h2>
+                        <div class="options">
+                            <label>
+                                <input type="radio" name="q2" value="Chelsea">
+                                <img src="chelsea.png" alt="Chelsea">
+                                Chelsea
+                            </label>
+                            <label>
+                                <input type="radio" name="q2" value="ManU">
+                                <img src="ManU.png" alt="ManU">
+                                Manchester United
+                            </label>
+                            <label>
+                                <input type="radio" name="q2" value="ManC">
+                                <img src="ManC.png" alt="ManC">
+                                Manchester City
+                            </label>
+                            <label>
+                                <input type="radio" name="q2" value="Liv">
+                                <img src="Liv.png" alt="Liv">
+                                Liverpool
+                            </label>
+                        </div>
+                        <button onclick="nextQuestion()">Next</button>
+                    </div>
+                    <!-- Question 3 -->
+                    <div class="question hidden" id="question3">
+                        <h2>3. What’s the most ridiculous fashion trend he’s ever tried?</h2>
+                        <label><input type="radio" name="q3" value="Crocs"> Crocs</label>
+                        <label><input type="radio" name="q3" value="Neon Colors"> Neon Colors</label>
+                        <label><input type="radio" name="q3" value="Skinny Jeans"> Skinny Jeans</label>
+                        <label><input type="radio" name="q3" value="Fanny Packs"> Fanny Packs</label>
+                        <button onclick="nextQuestion()">Next</button>
+                    </div>
+        
+                    <!-- Question 4 -->
+                    <div class="question hidden" id="question4">
+                        <h2>4. If he were an animal, what animal would he be and why?</h2>
+                        <div class="options">
+                            <label>
+                                <input type="radio" name="q4" value="Lion">
+                                <img src="lion.png" alt="Lion">
+                                Lion
+                            </label>
+                            <label>
+                                <input type="radio" name="q4" value="Elephant">
+                                <img src="elephant.png" alt="Elephant">
+                                Elephant
+                            </label>
+                            <label>
+                                <input type="radio" name="q4" value="Dolphin">
+                                <img src="dolphin.png" alt="Dolphin">
+                                Dolphin
+                            </label>
+                            <label>
+                                <input type="radio" name="q4" value="Eagle">
+                                <img src="eagle.png" alt="Eagle">
+                                Eagle
+                            </label>
+                        </div>
+                        <button onclick="nextQuestion()">Next</button>
+                    </div>
+        
+                    <!-- Question 5 -->
+                    <div class="question hidden" id="question5">
+                        <h2>5. What’s his guilty pleasure TV show or movie?</h2>
+                        <label><input type="checkbox" name="q5" value="Friends"> Friends</label>
+                        <label><input type="checkbox" name="q5" value="The Big Bang Theory"> The Big Bang Theory</label>
+                        <label><input type="checkbox" name="q5" value="Breaking Bad"> Breaking Bad</label>
+                        <label><input type="checkbox" name="q5" value="Monk"> Monk</label>
+                        <button onclick="nextQuestion()">Next</button>
+                    </div>
+        
+                    <!-- Question 6 -->
+                    <div class="question hidden" id="question6">
+                        <h2>6. What’s the most bizarre thing he’s ever eaten?</h2>
+                        <label><input type="checkbox" name="q6" value="Rats"> Rats</label>
+                        <label><input type="checkbox" name="q6" value="Spinach"> Spinach</label>
+                        <label><input type="checkbox" name="q6" value="Oyster"> Oyster</label>
+                        <label><input type="checkbox" name="q6" value="octopus"> octopus</label>
+                        <button onclick="nextQuestion()">Next</button>
+                    </div>
+        
+                    <!-- Question 7 -->
+                    <div class="question hidden" id="question7">
+                        <h2>7. What’s his favorite board game or video game?</h2>
+                        <label><input type="checkbox" name="q7" value="Mario Kart"> Mario Kart</label>
+                        <label><input type="checkbox" name="q7" value="Monopoly"> Monopoly</label>
+                        <label><input type="checkbox" name="q7" value="Chess"> Chess</label>
+                        <label><input type="checkbox" name="q7" value="30 seconds"> 30 seconds</label>
+                        <button onclick="nextQuestion()">Next</button>
+                    </div>
+        
+                    <!-- Question 8 -->
+                    <div class="question hidden" id="question8">
+                        <h2>8. What’s the most adventurous thing he’s ever done?</h2>
+                        <label><input type="checkbox" name="q8" value="Jumped windows off a 6 story building"> Jumped windows off a 6 story building</label>
+                        <label><input type="checkbox" name="q8" value="Bungee Jumping"> Bungee Jumping</label>
+                        <label><input type="checkbox" name="q8" value="Touched a snake"> Touched a snake</label>
+                        <label><input type="checkbox" name="q8" value="Mountain Climbing"> Mountain Climbing</label>
+                        <button onclick="nextQuestion()">Next</button>
+                    </div>
+        
+                    <!-- Question 9 -->
+                    <div class="question hidden" id="question9">
+                        <h2>9. If he could live in any area, where would it be?</h2>
+                        <input type="text" id="answer9">
+                        <button onclick="nextQuestion()">Next</button>
+                    </div>
+        
+                    <!-- Question 10 -->
+                    <div class="question hidden" id="question10">
+                        <h2>10. What’s the silliest thing that makes him laugh uncontrollably?</h2>
+                        <input type="text" id="answer10">
+                        <button onclick="finishQuiz()">Finish</button>
+                    </div>
+                </div>
+        
+                <!-- Result Section -->
+                <div id="result" class="hidden">
+                    <h2>Quiz Results</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Question</th>
+                                <th>Your Answer</th>
+                                <th>Correct Answer</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resultTable"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- <button  href="casourel.html">Continue to Carousel</button> -->
+    </div>
+
+    
+    <script src="script.js"></script>
+    <script src="script2.js"></script>
+</body>
+</html>
